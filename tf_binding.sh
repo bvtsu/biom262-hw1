@@ -79,5 +79,19 @@ tail gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta
 
 print(exercise5)
 
+%%bash --out exercise6
+#downloaded file with 8000+ canonical nfkb binding sites
+#pasted column one (forward strand 11-mer binding sites) into canonical_seqs_nfkb_plus.txt
+#pasted column two (rev strand 11-mer binding sites) into canonical_seqs_nfkb_minus.txt
+#My code here for matching forward strand binding sites, just searching for "+" and printing next line, then searching through the canonical_seqs_nfkb_plus.txt list for matches:
+awk '/+/{getline;print}' gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta | grep -Ff canonical_seqs_nfkb_plus.txt | wc -l
+#My code here for matching reverse strand binding sites, because there exists a "-" between the nuc positions, I must specify that I am looking for a "-" next to am open parenthesis "(". Then print next line, and searching through the canonical_seqs_nfkb_minus.txt list for matches
+awk '/\(-/{getline;print}' gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta | grep -Ff canonical_seqs_nfkb_minus.txt | wc -l
+
+print(exercise6)
+
+#YOUR ANSWER HERE: 297 forward 11-mer matches +216 rev complemented 11-mers
+# = 513
+
 echo "Hello I am a message in standard out (stdout)"
 echo "Hello I am a message in standard error (stderr) >&2"
