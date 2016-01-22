@@ -1,10 +1,4 @@
-%%bash: Too many arguments.
-[I 17:31:14.488 NotebookApp] Serving notebooks from local directory: /home/bvtsu
-[I 17:31:14.489 NotebookApp] 0 active kernels 
-[I 17:31:14.489 NotebookApp] The IPython Notebook is running at: http://localhost:9001/
-[I 17:31:14.489 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 17:31:16.779 NotebookApp] The port 9001 is already in use, trying another random port.
-[I 17:31:16.791 NotebookApp] Serving notebooks from local directory: /home/bvtsu
-[I 17:31:16.791 NotebookApp] 0 active kernels 
-[I 17:31:16.791 NotebookApp] The IPython Notebook is running at: http://localhost:9002/
-[I 17:31:16.791 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+awk: (FILENAME=gencode.v19.annotation.chr22.transcript.gtf FNR=43) fatal: print to "standard output" failed (Broken pipe)
+awk: (FILENAME=gencode.v19.annotation.chr22.transcript.promoter.gtf FNR=32) fatal: print to "standard output" failed (Broken pipe)
+awk: (FILENAME=gencode.v19.annotation.chr22.transcript.promoter.nfkb.gtf FNR=90) fatal: print to "standard output" failed (Broken pipe)
+awk: (FILENAME=gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta FNR=182) fatal: print to "standard output" failed (Broken pipe)

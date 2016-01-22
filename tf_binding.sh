@@ -10,7 +10,7 @@
 #PBS -m abe
 
 cd ~/code/biom262-2016/weeks/week01/data
-%%bash --out exercise1
+#%%bash --out exercise1
 # YOUR CODE HERE
 grep 'NFKB' tf.bed > tf.nfkb.bed
 wc -l tf.nfkb.bed
@@ -20,8 +20,8 @@ echo '--- Random 10 lines ---'
 awk -v seed=907 'BEGIN{srand(seed);}{print $0}'  tf.nfkb.bed | head
 echo '--- Last 10 lines ---'
 tail tf.nfkb.bed
-print(exercise1)
-%%bash --out exercise2
+#print(exercise1)
+#%%bash --out exercise2
 # YOUR CODE HERE
 cat gencode.v19.annotation.chr22.gtf | awk '$3 ~ /transcript/ {print}' > gencode.v19.annotation.chr22.transcript.gtf
 wc -l gencode.v19.annotation.chr22.transcript.gtf
@@ -31,8 +31,8 @@ echo '--- Random 10 lines ---'
 awk -v seed=907 'BEGIN{srand(seed);}{print $0}' gencode.v19.annotation.chr22.transcript.gtf | head
 echo '--- Last 10 lines ---'
 tail gencode.v19.annotation.chr22.transcript.gtf
-print(exercise2)
-%%bash --out exercise3
+#print(exercise2)
+#%%bash --out exercise3
 # YOUR CODE HERE
 module load biotools
 bedtools flank -i gencode.v19.annotation.chr22.transcript.gtf -g hg19.genome  -l 2000 -r 0 -s > gencode.v19.annotation.chr22.transcript.promoter.gtf
@@ -43,12 +43,12 @@ echo '--- Random 10 lines ---'
 awk -v seed=907 'BEGIN{srand(seed);}{print rand()" "$0}' gencode.v19.annotation.chr22.transcript.promoter.gtf | head
 echo '--- Last 10 lines ---'
 tail gencode.v19.annotation.chr22.transcript.promoter.gtf
-print(exercise3)
+#print(exercise3)
 
 
 
 
-%%bash --out exercise4
+#%%bash --out exercise4
 # Hi, this is my code for exercise4. Brian.
 module load biotools
 bedtools intersect -a gencode.v19.annotation.chr22.transcript.promoter.gtf -b tf.nfkb.bed > gencode.v19.annotation.chr22.transcript.promoter.nfkb.gtf
@@ -61,9 +61,9 @@ awk -v seed=908 'BEGIN{srand(seed);}{ if (rand() < 0.5 ) {print $0}}' gencode.v1
 echo '--- Last 10 lines ---'
 tail gencode.v19.annotation.chr22.transcript.promoter.nfkb.gtf
 
-print(exercise4)
+#print(exercise4)
 
-%%bash --out exercise5
+#%%bash --out exercise5
 
 # Hi, here is my code. Sincerely, Brian.
 module load biotools
@@ -77,9 +77,9 @@ awk -v seed=908 'BEGIN{srand(seed);}{ if (rand() < 0.5 ) {print $0}}' gencode.v1
 echo '--- Last 10 lines ---'
 tail gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta
 
-print(exercise5)
+#print(exercise5)
 
-%%bash --out exercise6
+#%%bash --out exercise6
 #downloaded file with 8000+ canonical nfkb binding sites
 #pasted column one (forward strand 11-mer binding sites) into canonical_seqs_nfkb_plus.txt
 #pasted column two (rev strand 11-mer binding sites) into canonical_seqs_nfkb_minus.txt
@@ -88,10 +88,12 @@ awk '/+/{getline;print}' gencode.v19.annotation.chr22.transcript.promoter.nfkb.f
 #My code here for matching reverse strand binding sites, because there exists a "-" between the nuc positions, I must specify that I am looking for a "-" next to am open parenthesis "(". Then print next line, and searching through the canonical_seqs_nfkb_minus.txt list for matches
 awk '/\(-/{getline;print}' gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta | grep -Ff canonical_seqs_nfkb_minus.txt | wc -l
 
-print(exercise6)
+#print(exercise6)
 
 #YOUR ANSWER HERE: 297 forward 11-mer matches +216 rev complemented 11-mers
 # = 513
+echo "Exercise 6: 513 matches, with 297 forward and 216 rev complemented matches"
+
 
 echo "Hello I am a message in standard out (stdout)"
 echo "Hello I am a message in standard error (stderr) >&2"
